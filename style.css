@@ -1,0 +1,473 @@
+@charset "utf-8";
+
+html {
+  scroll-behavior: smooth;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'PT Serif', serif;
+
+}
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+img {
+  vertical-align: bottom;
+}
+
+
+
+/* =============================================
+header common
+============================================= */
+.mainvisual {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  object-position: center;
+  background: pink;
+  background-image: url(AdobeStock_189657194\ のコピー.jpg);
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+.mainvisual::before {
+  content: 'SCROLL';
+  width: 100px;
+  height: 20px;
+  color: #fff;
+  position: absolute;
+  bottom: 0;
+  left: 4%;
+  rotate: 90deg;
+}
+.mainvisual::after {
+  content: '';
+  width: 3px;
+  height: 0;
+  background: #fff;
+  position: absolute;
+  top: calc(100% - 100px);
+  left: 5%;
+  animation: anime 1.5s infinite forwards;
+}
+@keyframes anime {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: 100px;
+  }
+}
+.mainvisual header {
+  width: min(100% - 40px, 1080px);
+  height: 80px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.mainvisual header h1 {
+  font-size: 0;
+}
+.mainvisual h2 {
+  position: absolute;
+  top: 10%;
+  left: 5%;
+  font-size: 8rem;
+  line-height: 1.2;
+  text-shadow: 0 0 8px rgba(255, 255, 255, .8),0 0 16px rgba(255, 255, 255, .4);
+}
+.mainvisual > p {
+  position: absolute;
+  top: 60%;
+  left: 5%;
+  max-width: 720px;
+  font-size: 1.5rem;
+  line-height: 1.75;
+  text-shadow: 0 0 8px rgba(255, 255, 255, .8),0 0 16px rgba(255, 255, 255, .4);
+}
+.mainvisual > p > span {
+  font-size: 1.75rem;
+}
+/* =============================================
+header sp
+============================================= */
+.mainvisual header #hamburger {
+  width: 60px;
+  height: 60px;
+  border-radius: 8px;
+  background: #fff;
+  position: relative;
+  cursor: pointer;
+  z-index: 3;
+}
+.mainvisual header #hamburger #open-border1 {
+  width: 70%;
+  height: 3px;
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #111;
+  transition: transform .3s;
+}
+.mainvisual header #hamburger #open-border1.show {
+  transform: rotate(45deg) translate(-6px, 23px);
+}
+.mainvisual header #hamburger #open-border2 {
+  width: 70%;
+  height: 3px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #111;
+  transition: opacity .3s;
+}
+.mainvisual header #hamburger #open-border2.show {
+  opacity: 0;
+}
+.mainvisual header #hamburger #open-border3 {
+  width: 70%;
+  height: 3px;
+  position: absolute;
+  top: 75%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #111;
+  transition:  transform .3s;
+}
+.mainvisual header #hamburger #open-border3.show {
+  transform: rotate(-45deg) translate(-3px, -28px);
+}
+.mainvisual header #open-menu {
+  width: 200px;
+  height: 100vh;
+  border-radius: 4px;
+  position: fixed;
+  top: 80px;
+  right: -50%;
+  text-align: center;
+  background-color: rgb(252, 190, 75);
+  opacity: 0;
+  z-index: 3;
+  transition: all .3s;
+}
+.mainvisual header #open-menu.show {
+  right: 20px;
+  opacity: 1;
+}
+.mainvisual header #open-menu .open li {
+  width: 80%;
+  margin: 20px auto 0;
+  padding: 12px 0;
+  cursor: pointer;
+  transition: all .3s;
+}
+.mainvisual header #open-menu .open li:hover {
+  background: rgba(255, 255, 255, .5);
+  opacity: .8;
+  scale: 1.2;
+}
+.mainvisual header #open-menu .open-sns {
+  display: flex;
+  gap: 16px;
+  width: min(100% - 32px);
+  margin: 120px auto 0;
+}
+.mainvisual header #open-menu .open-sns li {
+  width: calc((100% - 32px)/3);
+  cursor: pointer;
+}
+.mainvisual header #open-menu .open-sns li img {
+  width: 100%;
+}
+.mainvisual header #open-menu .open-sns li:hover {
+  opacity: .8;
+  scale: 1.2;
+}
+.mainvisual header #mask {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, .8);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 2;
+  transition: opacity .3s;
+}
+.mainvisual header #mask.show {
+  opacity: 1;
+  pointer-events: all;
+}
+/* =============================================
+header pc
+============================================= */
+.mainvisual header nav {
+  display: none;
+  height: 100%;
+}
+.mainvisual header nav ul {
+  height: 100%;
+  display: flex;
+  gap: 24px;
+}
+.mainvisual header nav ul li {
+  width: 100px;
+  height: 100%;
+  clip-path: polygon(
+    50% 0,
+    100% 50%,
+    50% 100%,
+    0 50%
+  );
+  line-height: 80px;
+  text-align: center;
+  background-image: url(curry-icon.png);
+  background-size: cover;
+  background-color: rgb(252, 190, 75);
+  background-position: 64px 64px;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  transition: all .3s;
+}
+.mainvisual header nav ul li:hover {
+  background: #fff;
+  opacity: .8;
+  scale: 1.2;
+}
+
+/* =============================================
+main
+============================================= */
+main {
+  background: #e0e0cb;
+}
+
+/* =============================================
+menu
+============================================= */
+main .menu {
+  width: min(100% - 40px, 1080px);
+  margin: 0 auto;
+  padding: 80px 16px;
+}
+main .menu h3 {
+  text-align: center;
+  font-size: 2.75rem;
+}
+main .menu > div {
+  margin-top: 32px;
+}
+main .menu div ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px
+}
+main .menu div ul li {
+  width: calc((100% - 20px)/2);
+}
+main .menu div ul li div {
+  width: 100%;
+}
+main .menu div ul li div img {
+  width: 100%;
+}
+main .menu div ul li div p {
+  margin-top: 4px;
+}
+
+/* =============================================
+owner
+============================================= */
+main .main-owner {
+  background-color: #fff;
+}
+main .owner {
+  width: min(100% - 40px, 1080px);
+  margin: 80px auto 0;
+  padding: 30px 16px;
+  /* background: #fff; */
+}
+main .owner h3 {
+  text-align: center;
+  font-size: 2.75rem;
+}
+main .owner .owner-intro {
+  margin-top: 32px;
+}
+main .owner .owner-intro div p:nth-child(1) {
+  font-size: 1.5rem;
+  text-align: center;
+}
+main .owner .owner-intro div p:nth-child(2) {
+  text-align: center;
+}
+main .owner .owner-intro div p:nth-child(3) {
+  font-size: 1.2rem;
+}
+main .owner .owner-intro div .en-p {
+  margin-bottom: 20px;
+}
+main .owner .owner-img {
+  text-align: center;
+}
+main .owner .owner-img img {
+  border-radius: 25%;
+}
+
+/* =============================================
+address
+============================================= */
+main .address {
+  width: min(100% - 40px, 1080px);
+  margin: 80px auto 0;
+  background: #eee;
+  padding: 30px 16px;
+}
+main .address h3 {
+  text-align: center;
+  font-size: 2.75rem;
+}
+main .address .shop-address {
+  margin-top: 32px;
+}
+main .address .shop-address div h4 {
+  font-size: 1.25rem;
+}
+main .address .shop-address div div p {
+  font-size: 1rem;
+}
+main .address .shop-address .map {
+  width: 100%;
+}
+main .address .shop-address .map iframe {
+  width: 100%;
+  height: 300px;
+}
+main .address .shop-address div div {
+  margin-top: 24px;
+}
+main .address .shop-address div div p + p {
+  margin-top: 8px;
+}
+
+/* =============================================
+footer
+============================================= */
+footer {
+  background: rgb(255, 184, 53);
+}
+footer .footer-menu nav {
+  padding-top: 40px;
+}
+footer .footer-menu nav ul {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  color: #fff;
+}
+footer .footer-menu nav ul li {
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+footer .footer-menu nav ul li:hover {
+  opacity: .7;
+  scale: 1.2;
+}
+footer .footer-sns {
+  margin-top: 32px;
+}
+footer .footer-sns ul {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+}
+footer .footer-sns ul li {
+  cursor: pointer;
+}
+footer .footer-sns ul li:hover {
+  opacity: .7;
+  scale: 1.2;
+}
+footer .footer-logo {
+  margin-top: 32px;
+  text-align: center;
+}
+footer .footer-copy {
+  margin: 8px 0 0;
+  padding-bottom: 30px;
+  text-align: center;
+}
+footer .footer-copy small {
+  font-size: .85rem;
+  color: #fff;
+}
+
+/* =============================================
+media
+============================================= */
+@media screen and (min-width:1080px) {
+}
+@media screen and (min-width:720px) {
+  .mainvisual header nav {
+    display: block;
+  }
+  .mainvisual header #hamburger {
+    display: none;
+  }
+  .mainvisual header #open-menu {
+    display: none;
+  }
+  .mainvisual header #mask {
+    display: none;
+  }
+  main .address  {
+    padding: 30px;
+  }
+  main .address .shop-address {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+  }
+  main .address .shop-address > div {
+    flex: 1;
+  }
+  main .address .shop-address .map {
+    width: calc((100% - 32px)/2);
+  }
+  main .address .shop-address2 {
+    flex-direction: row-reverse;
+  }
+  main .address .shop-address div div p + p {
+    margin-top: 12px;
+  }
+  main .owner {
+    padding: 30px;
+  }
+  main .owner .owner-intro {
+    display: flex;
+    gap: 32px;
+  }
+  main .owner .owner-intro > div {
+    flex: 1;
+  }
+  main .owner .owner-intro .owner-img {
+    width: calc((100% - 32px)/2);
+  }
+  main .owner .owner-img img {
+    width: 100%;
+    object-fit: cover;
+  }
+  main .menu div ul li {
+    width: calc((100% - 40px)/3);
+  }
+
+}
