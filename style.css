@@ -80,6 +80,7 @@ header common
   position: absolute;
   top: 10%;
   left: 5%;
+  max-width: 100vw;
   font-size: 8rem;
   line-height: 1.2;
   text-shadow: 0 0 8px rgba(255, 255, 255, .8),0 0 16px rgba(255, 255, 255, .4);
