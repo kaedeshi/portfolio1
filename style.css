@@ -36,6 +36,7 @@ header common
   background-size: cover;
   background-position: center;
   position: relative;
+  overflow: hidden;
 }
 .mainvisual::before {
   content: 'SCROLL';
