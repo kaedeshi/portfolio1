@@ -76,25 +76,28 @@ header common
 .mainvisual header h1 {
   font-size: 0;
 }
-.mainvisual h2 {
+.mainvisual .text {
   position: absolute;
   top: 10%;
   left: 5%;
+  width: 100vw;
+  height: 100vh;
   max-width: 100vw;
-  font-size: 8rem;
+  max-height: 100vh;
+}
+.mainvisual .text h2 {
+  font-size: 7.5rem;
   line-height: 1.2;
   text-shadow: 0 0 8px rgba(255, 255, 255, .8),0 0 16px rgba(255, 255, 255, .4);
 }
-.mainvisual > p {
-  position: absolute;
-  top: 60%;
-  left: 5%;
+.mainvisual .text p {
+  margin-top: 100px;
   max-width: 720px;
   font-size: 1.5rem;
   line-height: 1.75;
   text-shadow: 0 0 8px rgba(255, 255, 255, .8),0 0 16px rgba(255, 255, 255, .4);
 }
-.mainvisual > p > span {
+.mainvisual .text p span {
   font-size: 1.75rem;
 }
 /* =============================================
